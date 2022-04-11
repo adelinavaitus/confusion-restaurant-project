@@ -26,13 +26,14 @@ class DishDetail extends Component {
     renderComments(dish) {
         if (dish != null) {
             return (
-                <Card> <h4>Comments</h4>
+                <Card> 
+                    <h4>Comments</h4>
                     {
                         dish.comments.map((elem => {
                             return (
                                 <CardBody>
                                     <CardText>{elem.comment}</CardText>
-                            <       CardText> -- {elem.author} {elem.date}</CardText>
+                                    <CardText> -- {elem.author} {elem.date}</CardText>
                                 </CardBody>
                             );
                         }))
