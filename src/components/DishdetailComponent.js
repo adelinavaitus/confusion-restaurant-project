@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardTitle, CardText, CardBody } from 'reactstrap';
+
 class DishDetail extends Component {
     constructor(props) {
         super(props);
 
         this.state = {}
     }
-
-    componentDidMount() { }
 
     renderDish(dish) {
         if (dish != null) {
@@ -29,14 +28,14 @@ class DishDetail extends Component {
                 <Card> 
                     <h4>Comments</h4>
                     {
-                        dish.comments.map((elem => {
+                        dish.comments.map((elem) => {
                             return (
                                 <CardBody>
                                     <CardText>{elem.comment}</CardText>
-                                    <CardText> -- {elem.author} {elem.date}</CardText>
+                                    <CardText> -- {elem.author} {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(elem.date)))}</CardText>
                                 </CardBody>
                             );
-                        }))
+                        })
                     }
                 </Card>
 
